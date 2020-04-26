@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>list of articles</title>
+	<link rel="stylesheet" href = "{% static 'style.css' %}">
+</head>
+<body>
+<div class="wrapper">
+	<a href="{% url 'articles:list' %}"><img src = "{% static 'logo.png' %}"> </a>
+</div>
+<div class ="this">
+	<br><br><br>
+	<center><h2>You Logged Out Sucessfully</h2></center><br><br><br>
+	<nav>
+		<center>
+		<form class="favor" action="{% url 'accounts:login' %}" method="get">
+			<button class="block" type="submit" value="LogIn">LogIn</button>
+		</form><br><br>
+		<form class="favor" action="{% url 'accounts:signup' %}" method="get">
+			<button class="block" type="submit" value="SignUp">SignUp</button>
+		</form>
+	</center>
+
+
+
+	</body>
+</html>

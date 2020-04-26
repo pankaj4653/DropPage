@@ -1,0 +1,13 @@
+{% extends 'base_template2.html' %}
+
+{% block content %}
+<div class = "all" >
+	<center><h1> Log In </h1></center><br><br>
+	<form class="site-form" action="{% url 'accounts:login' %}" method="post">
+	{% csrf_token %}
+	{{form}}
+	<input class="block" type="submit" value="LogIn">
+	</form>
+	
+</div>
+{% endblock %}

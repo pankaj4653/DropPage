@@ -1,0 +1,12 @@
+{% extends "base_template.html" %}
+
+{% block content %}
+<div class="art">
+	<div class="art_list">
+		<center><img src="{{article.thumb.url}}"/></center>
+		<center><h1>{{article.title}}</h1></center>
+		<center><h2>{{article.body}}</h2></center>
+		<center><h5>{{article.date}}</h5></center>
+	</div>
+</div>
+{% endblock %}	

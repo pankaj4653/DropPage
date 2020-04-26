@@ -1,0 +1,15 @@
+{% extends "base_template.html" %}
+
+{% block content %}
+	<div class="pro">
+		 <h1>{{ user.username }}</h1>
+		 <h4>{{user.profile.prof}} at {{user.profile.comp}}</h4><br>
+		 <h1>{{user.first_name}}</h1>
+		 <h1>{{user.email}}</h1>
+		 <h1>{{user.profile.country}}</h1>
+		 <h1>{{user.profile.bio}}</h1><br><br><br><br>
+		</div>
+	<div class="edit">
+		<a href="{% url 'profili:edit' %}"><input class="block" type="submit" value = "Edit"></button></a>
+	</div>
+{% endblock %}

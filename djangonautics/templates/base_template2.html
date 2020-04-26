@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>list of articles</title>
+	<link rel="stylesheet" href = "{% static 'style.css' %}">
+</head>
+<body>
+<nav>
+
+	<form class = "favor" align="right" action="{% url 'accounts:logout' %}"  method="post" >
+		{% csrf_token %}
+    <button class="block" type="submit" value="LogOut">LogOut</button>		
+	</form>
+	<center><a align="right" href= "{% url 'articles:fill-data' %}"><button class="block">Add a Blog</button></a><center>
+</nav>
+<div class="wrapper">
+	<a href="{% url 'articles:list' %}"><img src = "{% static 'logo.png' %}"> </a>
+	{% block content %}
+	{% endblock %}
+</div>
+	</body>
+</html>

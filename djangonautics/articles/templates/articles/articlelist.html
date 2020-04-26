@@ -1,0 +1,17 @@
+{% extends "base_template.html" %}
+
+{% block content %}
+
+<center><h1> ARTICLES </h1></center>
+<div class="article">
+	{% for art in article %}
+	<div class = "list">
+		<center><p><a href="{% url 'articles:detail' slug=art.slug %}"><h3>{{art.title}}</h3></a></p></center>
+		<center><p><h4>{{art.date}}</h4></p></center>
+		<center><p><h2>{{art.snippet}}</h2></p></center>
+	</div>
+	{% endfor %}
+</div>
+
+{% endblock %}
+
