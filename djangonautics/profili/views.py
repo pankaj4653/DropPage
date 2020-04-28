@@ -17,15 +17,20 @@ def profile_detail(request):
 
 
 def profile_edit(request):
+	user=request.user
 	if request.method == "POST":
-		form = Profile_Form(request.POST or None,instance=request.user.profile)
+		form = Profile_Form(request.POST or None,instance=user.profile)
 		if form.is_valid():
+			user.first_name=form.cleaned_data.get('first_name')
+			user.last_name=form.cleaned_data.get('last_name')
 			form.save()
+			user.save()
 			return redirect("http://127.0.0.1:8000/")
 	else:
-		form = Profile_Form(instance=request.user.profile)
+		form = Profile_Form(instance=user.profile)
+		form['first_name'].initial = user.first_name
+		form['last_name'].initial=user.last_name
 	return render(request,'profili/profile.html',{'form':form})
-
 
 
 
