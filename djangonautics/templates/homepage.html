@@ -6,12 +6,14 @@
 	<link rel="stylesheet" href = "{% static 'style.css' %}">
 </head>
 <body>
+
+	<a href="{% url 'accounts:signup' %}"><button style = "float :right;" class="block" type="button">Sign Up</button></a><br><br>
 <center><h1 style = "color:red">WELCOME   TO   DJANGONAUTICS</h1></center><br><br><br><br>
 
 <center><form action = "{%url 'accounts:login' %}" method='post'>
 	{% csrf_token %}
 	{{form.as_p}}
-	<input type = "submit" value = "Log In">
+	<input class="block" type = "submit" value = "Log In">
 </form>
 <center>
 </body>

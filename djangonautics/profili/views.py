@@ -21,7 +21,7 @@ def profile_edit(request):
 	if request.method == "POST":
 		form = Profile_Form(request.POST or None,instance=user.profile)
 		if form.is_valid():
-			user.first_name=form.cleaned_data.get('first_name')
+			user.first_name=form.cleaned_data.get('first_name') # user.refresh_from_db()
 			user.last_name=form.cleaned_data.get('last_name')
 			form.save()
 			user.save()
@@ -31,6 +31,9 @@ def profile_edit(request):
 		form['first_name'].initial = user.first_name
 		form['last_name'].initial=user.last_name
 	return render(request,'profili/profile.html',{'form':form})
+
+
+
 
 
 

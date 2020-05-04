@@ -9,7 +9,18 @@ from django.contrib.auth import login,logout
 
 from . forms import user_info_form
 
+from django.core.mail import send_mail
+
+from django.conf import settings
+
 # Create your views here.
+
+subject = "Welcome To Djangonautics"
+msg = "Thank You For Signing In"
+from_email = settings.EMAIL_HOST_USER
+
+
+
 
 def sign_up(request):
 	if(request.method == "POST"):
@@ -17,7 +28,8 @@ def sign_up(request):
 		if (form.is_valid()):
 			user = form.save()
 			login(request,user)
-
+			to_mail = [user.email,]
+			send_mail(subject, msg, from_email, to_mail, fail_silently = True)
 			return redirect("articles:list")
 	else:
 	 form = user_info_form()
